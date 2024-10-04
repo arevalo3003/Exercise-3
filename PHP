@@ -1,0 +1,19 @@
+<?php
+$filename = 'grp11_Arevalo,Erieyl._ex3.php';
+if (file_exists($filename)) {
+    echo "File '$filename' exists. Reading contents...<br><br>;
+    $content = file_get_contents($filename);
+    echo "Content of '$filename':<br>$content<br><br>";
+    $lines = file($filename);
+    echo "Lines of '$filename':<br>";
+    foreach ($lines as $line_num => $line) {
+    echo "Line $line_num: " . htmlspecialchars($line) . <br>";
+    }
+} else {
+    echo "File '$filename' does not exist. Creating it and writing data...<br><br>";
+$data = "This is a new file created by file_put_contents()\n";
+$data .= "Each line of text will be written to the file.\n";
+    file_put_contents($filename, $data);
+    echo "File '$filename' created successfully!";
+}
+?>
